@@ -1,0 +1,32 @@
+# @AutoGripType NodeExtension.NormalGrip // Default Grip, other grips: NodeExtension.ExtensionGrip, NodeExtension.PackageGrip
+
+finalPack(client: NodeExtension.Client).finalize(finalize: new NodeExtension.ClientFinal()).distract(autoDebugDistract: false)
+
+def var = []
+
+define(name: var, type: NodeExtension.List, value: NodeExtension.CommandLineArguments)
+
+void onLoad() {
+
+    if (getDefine(name: var).contains(key: "--openList=new")) {
+        setDefineValue(name: var, value: NodeExtension.EmptyCommandLineArguments)
+    }
+
+}
+
+define(name: onLoad, type: NodeExtension.Function, value: NodeExtension.newFunction)
+
+def packages = new NodeExtension.Directory(dirName: "nodePackages");
+
+void loadDIrectory() {
+
+    # @AutoGripType NodeExtension.PackageGrip // Package grip
+
+    if (getDefine(name: var).contains(key: "--install").sperate(key: "%%i~", sperator: " ")) {
+        NodeExtension.getPackageFromArgs(args: getDefine(name: var), key: "%%i~")
+        NodeExtension.runCommand(command: new NodeExtension.Command(args: "node index.js --install %%i~"))
+    }
+
+}
+
+define(name: packages, type: NodeExtension.Directory, value: NodeExtension.Directory)

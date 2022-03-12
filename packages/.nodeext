@@ -1,0 +1,7 @@
+//-// NodeExtension Grip Loader //-//
+/*
+ * Load().gripfunc(AutoGrip.existingGrip().NODEEXTENSIONGRIP)
+ * Load().getNodeExtension().endTokener()
+ * Load().getManager().endTokener()
+ * Load().getManager().unlaod(this)
+ */

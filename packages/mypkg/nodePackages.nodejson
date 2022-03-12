@@ -1,0 +1,8 @@
+{
+    "name": "mypkg",
+    "version": "1.0.0",
+    "description": "test package",
+    "main": "index.nodeext",
+    "author": "Whomaxiswell",
+    "license": "MIT"
+}

@@ -1,0 +1,4 @@
+# @GripLoader NodeExtensionGripLoader.LoaderSchema
+
+# @requires NodeExtension
+# @requires NodeExtensionHelper
